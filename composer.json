@@ -1,0 +1,16 @@
+{
+    "name": "arafatkn/laravel-settings",
+    "description": "A laravel package for managing project settings.",
+    "autoload": {
+        "psr-4": {
+            "Arafatkn\\LaravelSettings\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Arafat Islam",
+            "email": "arafatkn@gmail.com"
+        }
+    ],
+    "require": {}
+}
