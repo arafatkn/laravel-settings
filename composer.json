@@ -1,16 +1,35 @@
 {
     "name": "arafatkn/laravel-settings",
     "description": "A laravel package for managing project settings.",
-    "autoload": {
-        "psr-4": {
-            "Arafatkn\\LaravelSettings\\": "src/"
-        }
-    },
+    "type": "package",
+    "license": "MIT",
     "authors": [
         {
             "name": "Arafat Islam",
             "email": "arafatkn@gmail.com"
         }
     ],
-    "require": {}
+    "keywords": [
+        "settings",
+        "setting",
+        "laravel settings"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Arafatkn\\LaravelSettings\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Arafatkn\\LaravelSettings\\SettingServiceProvider"
+            ],
+            "aliases": {
+                "LaravelSetting": "Arafatkn\\LaravelSettings\\Facades\\Setting"
+            }
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    }
 }
