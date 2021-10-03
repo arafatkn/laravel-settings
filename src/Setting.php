@@ -7,6 +7,17 @@ use Arafatkn\LaravelSettings\Models\Setting as SettingModel;
 class Setting
 {
     /**
+     * Check whether the key exists or not
+     *
+     * @param string $key
+     * @return boolean
+     */
+    public function has($key)
+    {
+        return (bool) SettingModel::where('key', $key)->count();
+    }
+
+    /**
      * Set a specific setting with key.
      *
      * @param string $key
@@ -33,10 +44,10 @@ class Setting
      * @param string $key
      * @return string|null
      */
-    public function get($key)
+    public function get($key, $default = null)
     {
         $setting = SettingModel::where('key', $key)->first();
-        return $setting ? $setting->value : null;
+        return $setting ? $setting->value : $default;
     }
 
     /**
@@ -57,7 +68,7 @@ class Setting
      */
     public function clean()
     {
-        return SettingModel::where('key', $key)->delete();
+        return SettingModel::query()->delete();
     }
 
     /**

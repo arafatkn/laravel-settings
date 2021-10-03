@@ -15,7 +15,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->string('key', 64)->primary();
-            $table->text('value');
+            $table->text('value')->nullable();
             $table->boolean('autoload')->default(false);
             // If the column value is true, then that row will be preloaded and cached.
             // If false, then the row will be loaded in time and cached.
