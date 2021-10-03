@@ -16,7 +16,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Arafatkn\\LaravelSettings\\": "src/"
+            "Arafatkn\\LaravelSettings\\": "src/",
+            "Arafatkn\\LaravelSettings\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Arafatkn\\LaravelSettings\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -25,12 +31,18 @@
                 "Arafatkn\\LaravelSettings\\SettingServiceProvider"
             ],
             "aliases": {
-                "LaravelSetting": "Arafatkn\\LaravelSettings\\Facades\\Setting"
+                "Setting": "Arafatkn\\LaravelSettings\\Facades\\Setting"
             }
         }
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.5"
-    }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-f": "vendor/bin/phpunit --filter"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

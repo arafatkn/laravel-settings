@@ -1,6 +1,8 @@
 # Laravel Settings
 
-[![License](https://poser.pugx.org/mishajib/laravel-settings/license)](//packagist.org/packages/mishajib/laravel-settings)
+[![Latest Stable Version](https://poser.pugx.org/arafatkn/laravel-settings/v)](//packagist.org/packages/arafatkn/laravel-settings)
+[![License](https://poser.pugx.org/arafatkn/laravel-settings/license)](//packagist.org/packages/arafatkn/laravel-settings)
+[![Total Downloads](https://poser.pugx.org/arafatkn/laravel-settings/downloads)](//packagist.org/packages/arafatkn/laravel-settings)
 
 A laravel package for managing project settings.
 

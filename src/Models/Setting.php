@@ -2,10 +2,14 @@
 
 namespace Arafatkn\LaravelSettings\Models;
 
+use Arafatkn\LaravelSettings\Database\Factories\SettingFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Setting extends Model
 {
+    use HasFactory;
+
     /**
      * Make "key" column as primary
      * @var string
@@ -34,5 +38,15 @@ class Setting extends Model
      * make the key, value and autoload fillable
      */
     protected $fillable = ['key', 'value', 'autoload'];
+
+    /**
+     * Overwrite default factory class
+     *
+     * @return SettingFactory
+     */
+    protected static function newFactory()
+    {
+        return SettingFactory::new();
+    }
 
 }
