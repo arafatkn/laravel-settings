@@ -9,11 +9,7 @@
             "email": "arafatkn@gmail.com"
         }
     ],
-    "keywords": [
-        "settings",
-        "setting",
-        "laravel settings"
-    ],
+    "keywords": [ "settings", "setting", "laravel settings" ],
     "autoload": {
         "psr-4": {
             "Arafatkn\\LaravelSettings\\": "src/",
