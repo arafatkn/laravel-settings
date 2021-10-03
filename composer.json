@@ -1,0 +1,44 @@
+{
+    "name": "arafatkn/laravel-settings",
+    "description": "A laravel package for managing project settings.",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arafat Islam",
+            "email": "arafatkn@gmail.com"
+        }
+    ],
+    "keywords": [ "settings", "setting", "laravel settings" ],
+    "autoload": {
+        "psr-4": {
+            "Arafatkn\\LaravelSettings\\": "src/",
+            "Arafatkn\\LaravelSettings\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Arafatkn\\LaravelSettings\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Arafatkn\\LaravelSettings\\SettingServiceProvider"
+            ],
+            "aliases": {
+                "Setting": "Arafatkn\\LaravelSettings\\Facades\\Setting"
+            }
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-f": "vendor/bin/phpunit --filter"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
