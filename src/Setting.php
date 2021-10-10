@@ -7,6 +7,12 @@ use Arafatkn\LaravelSettings\Models\Setting as SettingModel;
 class Setting
 {
     /**
+     * Store already retrieved key-value
+     * @var array
+     */
+    private $data = [];
+
+    /**
      * Check whether the key exists or not
      *
      * @param string $key
@@ -14,7 +20,7 @@ class Setting
      */
     public function has($key)
     {
-        return (bool) SettingModel::where('key', $key)->count();
+        return isset($this->data[$key]) || (bool) SettingModel::where('key', $key)->count();
     }
 
     /**
@@ -27,6 +33,8 @@ class Setting
      */
     public function set($key, $value = null, $autoload = false)
     {
+        $this->data[$key] = $value;
+
         return SettingModel::updateOrCreate(
             [
                 'key' => $key
@@ -46,7 +54,12 @@ class Setting
      */
     public function get($key, $default = null)
     {
+        if(isset($this->data[$key])) {
+            return $this->data[$key];
+        }
+
         $setting = SettingModel::where('key', $key)->first();
+
         return $setting ? $setting->value : $default;
     }
 
@@ -58,6 +71,8 @@ class Setting
      */
     public function forget($key)
     {
+        unset($this->data[$key]);
+
         return SettingModel::where('key', $key)->delete();
     }
 
@@ -68,16 +83,34 @@ class Setting
      */
     public function clean()
     {
+        $this->data = [];
+
         return SettingModel::query()->delete();
     }
 
     /**
      * Get All Settings
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return array
      */
     public function all()
     {
-        return SettingModel::all();
+        $this->data = SettingModel::get(['key', 'value'])->mapWithKeys(function($item) {
+            return [ $item->key => $item->value ];
+        })->toArray();
+
+        return $this->data;
+    }
+
+    /**
+     * Run Autoloader
+     */
+    public function autoload()
+    {
+        $settings = SettingModel::where('autoload', true)->mapWithKeys(function($item) {
+            return [ $item->key => $item->value ];
+        });
+
+        $this->data = array_merge($this->data, $settings);
     }
 }
