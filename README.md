@@ -62,7 +62,8 @@ Setting::all(); // get all settings
 
 ## Roadmap
 
-- Cache Support.
+- Runtime result cache to reduce duplicate query (release in v0.2.0).
+- File/Redis Cache Support.
 - Multiple driver support. Such as- file, redis etc.
 
 If you want to contribute, open a pull request by following Laravel contribution guide.
