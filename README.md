@@ -1,3 +1,5 @@
+![Laravel Settings](https://banners.beyondco.de/Laravel%20Settings.png?theme=light&packageManager=composer+require&packageName=arafatkn%2Flaravel-settings&pattern=architect&style=style_1&description=A+laravel+package+for+managing+project+settings.&md=1&showWatermark=0&fontSize=100px&images=adjustments)
+
 # Laravel Settings
 
 [![Latest Stable Version](https://poser.pugx.org/arafatkn/laravel-settings/v)](//packagist.org/packages/arafatkn/laravel-settings)
